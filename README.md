@@ -53,8 +53,8 @@ $ cd /home/kodi/
 $ git clone https://github.com/xbmc/xbmc.git kodi-source
 ```
 
-If you want to compile a particular version of Kodi first have a look at tags
-in the repository:
+If you want to compile a particular version of Kodi first have a look at the
+tags in the repository:
 ```
 $ git tag
 ...
@@ -68,7 +68,8 @@ $ git tag
 $ 
 ```
 
-Now, tell `git` to set the Kodi source code to the version you want:
+Each tag corresponds to a released version of Kodi. Now, tell `git` to set the
+Kodi source code to the version you want:
 ```
 $ git checkout 17.6-Krypton
 ```
@@ -85,7 +86,8 @@ As `root` execute:
 # ./install-build-dependencies-debian.sh
 ```
 
-As the `kodi` user, before compilation Kodi build directory needs to be configured:
+As the `kodi` user, the Kodi build directory needs to be configured
+before compilation:
 ```
 $ cd /home/kodi/KodiInstall
 $ ./configure-kodi.sh
@@ -102,13 +104,15 @@ To compile all the binary addons:
 $ ./build-binary-addons-all.sh
 ```
 
-or execute this if you are not going to use Kodi personal video recorder (PVR).
-This command compiles all binary addons except the PVR addons:
+or instead execute this if you are not going to use Kodi personal video
+recorder (PVR) features. This command compiles all binary addons except
+the PVR addons:
 ```
 $ ./build-binary-addons-selected.sh
 ```
 
-Finally, to install Kodi, the Kodi binary addons and runtime files:
+Finally, to install Kodi, the Kodi binary addons and the required runtime
+files like the default skin execute:
 ```
 $ ./install-kodi.sh
 ```
@@ -122,6 +126,11 @@ Update Kodi source code:
 $ cd /home/kodi-source/
 $ git checkout master
 $ git pull
+```
+
+If you wish to set a specific version:
+```
+$ git checkout 17.6-Krypton
 ```
 
 Then configure, compile and install Kodi again:
