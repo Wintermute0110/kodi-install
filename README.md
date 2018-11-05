@@ -50,7 +50,7 @@ The Kodi compilation tools will be cloned into the directory
 As the `kodi` user clone the Kodi source code. This will take a while:
 ```
 $ cd /home/kodi/
-$ git clone https://github.com/XBMC/XBMC.git kodi-source
+$ git clone https://github.com/xbmc/xbmc.git kodi-source
 ```
 
 If you want to compile a particular version of Kodi first have a look at tags
