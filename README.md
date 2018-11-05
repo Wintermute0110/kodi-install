@@ -119,6 +119,11 @@ $ ./install-kodi.sh
 
 The first time you execute Kodi the userdata directory `/home/.kodi/` will be created.
 
+Now that Kodi is installed you can safely delete the Kodi build directory to save disk space:
+```
+$ ./purge-build-directory.sh
+```
+
 ### Update Kodi ###
 
 Update Kodi source code:
@@ -141,4 +146,5 @@ $ ./build-kodi-x11.sh
 $ ./clean-binary-addons.sh
 $ ./build-binary-addons-selected.sh
 $ ./install-kodi.sh
+$ ./purge-build-directory.sh
 ```
