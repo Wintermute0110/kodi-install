@@ -76,6 +76,24 @@ $ cd /home/kodi/kodi-source/
 $ git checkout 17.6-Krypton
 ```
 
+To compile the Retroplayer binary addons with the Libretro emulators (the
+emulator **cores**), you need to edit the file `binary-addons.txt`. In this
+example I use the editor `nano` but feel free to use whichever editor you
+wish.
+```
+$ nano /home/kodi/kodi-source/cmake/addons/bootstrap/repositories/binary-addons.txt
+```
+
+The contents of `binary-addons.txt` should be:
+```
+binary-addons https://github.com/xbmc/repo-binary-addons.git master
+```
+
+Change by:
+```
+binary-addons https://github.com/kodi-game/repo-binary-addons.git retroplayer
+```
+
 The Kodi source code is now ready for compilation.
 
 
