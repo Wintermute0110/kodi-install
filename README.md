@@ -128,7 +128,7 @@ or instead execute this if you are not going to use Kodi personal video
 recorder (PVR) features. This command compiles all binary addons except
 the PVR addons:
 ```
-$ ./build-binary-addons-selected.sh
+$ ./build-binary-addons-no-pvr.sh
 ```
 
 Finally, to install Kodi, the Kodi binary addons and the required runtime
@@ -164,7 +164,9 @@ $ cd /home/kodi/KodiInstall
 $ ./configure-kodi.sh
 $ ./build-kodi-x11.sh
 $ ./clean-binary-addons.sh
-$ ./build-binary-addons-selected.sh
+$ ./build-binary-addons-no-pvr.sh
 $ ./install-kodi.sh
-$ ./purge-build-directory.sh
 ```
+
+If you plan to update Kodi frequently then do not execute `purge-build-directory.sh` to save
+compilation time (only files changed will be recompiled).
