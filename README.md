@@ -119,7 +119,9 @@ fast computer):
 $ ./build-kodi-x11.sh
 ```
 
-To compile all the binary addons:
+The binary addons will take a long time to compile, much longer than
+Kodi itself. The game addons take particularly long. To compile all
+the binary addons:
 ```
 $ ./build-binary-addons-all.sh
 ```
