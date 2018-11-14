@@ -17,9 +17,9 @@ These scripts assume that:
 
 Once compiled and installed, you can execute Kodi in several ways:
 ```
-$ /home/kodi/bin-kodi/kodi
+$ /home/kodi/bin-kodi/bin/kodi
 
-$ /home/kodi/bin-kodi/kodi-standalone
+$ /home/kodi/bin-kodi/bin/kodi-standalone
 
 $ /home/kodi/bin-kodi/lib/kodi/kodi-x11
 ```
