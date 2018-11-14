@@ -25,12 +25,12 @@ $ /home/kodi/bin-kodi/lib/kodi/kodi-x11
 ```
 
 The actual Kodi executable is `/home/kodi/bin-kodi/lib/kodi/kodi-x11`. The
-other two executables are shell scripts that call the Kodi executable.
+first two files are shell scripts that call the actual Kodi executable `kodi-x11`.
 
 
 ### Cloning this repository ###
 
-If you don't have `git` installed then execute as `root`
+If you don't have `git` installed then execute as `root` user:
 ```
 # apt-get install git
 ```
@@ -56,6 +56,7 @@ $ git clone https://github.com/xbmc/xbmc.git kodi-source
 If you want to compile a particular version of Kodi first have a look at the
 tags in the repository:
 ```
+$ cd /home/kodi/kodi-source/
 $ git tag
 ...
 16.0-Jarvis
@@ -71,6 +72,7 @@ $
 Each tag corresponds to a released version of Kodi. Now, tell `git` to set the
 Kodi source code to the version you want:
 ```
+$ cd /home/kodi/kodi-source/
 $ git checkout 17.6-Krypton
 ```
 
