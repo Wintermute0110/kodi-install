@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-* **[Readme me first](ar)**
-* **[Cloning this repository](ar)**
-* **[Clone and prepare Kodi source code](ar)**
-* **[Compile and installing Kodi for the first time](ar)
-* **[Update Kodi](ar)
+* **[Readme me first](#readme-me-first)**
+* **[Cloning this repository](#cloning-this-repository)**
+* **[Clone and prepare Kodi source code](#clone-and-prepare-kodi-source-code)**
+* **[Compile and installing Kodi for the first time](#compile-and-installing-kodi-for-the-first-time)**
+* **[Update Kodi](#update-kodi)**
 
 ## Readme me first ##
 
