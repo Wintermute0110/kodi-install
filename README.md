@@ -1,5 +1,15 @@
 ## Compile and install Kodi on Debian/Ubuntu distributions ##
 
+## Table of Contents
+
+* **[Readme me first](ar)**
+* **[Cloning this repository](ar)**
+* **[Clone and prepare Kodi source code](ar)**
+* **[Compile and installing Kodi for the first time](ar)
+* **[Update Kodi](ar)
+
+## Readme me first ##
+
 These scripts assume that:
 
  * The user running Kodi is named `kodi`.
@@ -28,7 +38,7 @@ The actual Kodi executable is `/home/kodi/bin-kodi/lib/kodi/kodi-x11`. The
 first two files are shell scripts that call the actual Kodi executable `kodi-x11`.
 
 
-### Cloning this repository ###
+## Cloning this repository ##
 
 If you don't have `git` installed then execute as `root` user:
 ```
@@ -45,7 +55,7 @@ The Kodi compilation tools will be cloned into the directory
 `/home/kodi/KodiInstall/`.
 
 
-### Clone and prepare Kodi source code ###
+## Clone and prepare Kodi source code ##
 
 As the `kodi` user clone the Kodi source code. This will take a while:
 ```
@@ -97,7 +107,7 @@ binary-addons https://github.com/kodi-game/repo-binary-addons.git retroplayer
 The Kodi source code is now ready for compilation.
 
 
-### Compile and installing Kodi for the first time ###
+## Compile and installing Kodi for the first time ##
 
 First you need to install the build dependencies required to compile Kodi.
 As `root` execute:
@@ -146,7 +156,7 @@ Now that Kodi is installed you can safely delete the Kodi build directory to sav
 $ ./purge-build-directory.sh
 ```
 
-### Update Kodi ###
+## Update Kodi ##
 
 Update Kodi source code:
 ```
