@@ -252,25 +252,23 @@ compilation time (only files changed will be recompiled).
    ~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/system/ ).` is wrong. The correct
    directory is `~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/resources/system/`
 
- * If joystick is hot unplugged Kodi correctly detects that is has been unplugged.
- 
+ * If joystick is hot unplugged Kodi correctly detects that is has been unplugged and emulation
+   does not start anymore. Interestingly, in Windows emulation starts when
+   there is no gamepad, only keyboard.
+
 ```
 22:46:37.511 T:140428854687488   ERROR: AddOnLog: Joystick Support: ScanEvents: failed to read joystick "Xbox 360 Wireless Receiver" on /dev/input/js0 - 19 (No such device)
 22:46:38.921 T:140429205022464   ERROR: Previous line repeats 86 times.
 22:46:38.921 T:140429205022464  NOTICE: UnregisterRemovedDevices - device removed from joystick/peripheral.joystick/0: Xbox 360 Wireless Receiver (0000:0000)
 ```
 
-   and emulation does not start anymore. Interestingly, in Windows emulation starts when
-   there is no gamepad, only keyboard.
+ * If joystick is hot plugged Kodi detects it OK. Emulation starts when a ROM is clicked.
+   Interestingly, whenever a joystick is plugged emulation starts correctly even if
+   controlling Kodi with the keyboard.
 
- * If joystick is hot plugged Kodi detects it OK.
- 
 ```
 22:48:47.805 T:140429205022464  NOTICE: Register - new joystick device registered on addon->peripheral.joystick/1: Xbox 360 Wireless Receiver
 ```
-
-   emulation starts when a ROM is clicked. Ineterstingly, if a joystick is plugged emulation
-   starts correctly even if controlling Kodi with the keyboard.
 
  * Aspect ratio in core `beetle_psx` is wrong in Stretch mode Normal. Stretch mode 4:3 seems
    to work OK.
