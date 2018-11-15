@@ -129,20 +129,6 @@ fast computer):
 $ ./build-kodi-x11.sh
 ```
 
-The binary addons will take a long time to compile, much longer than
-Kodi itself. The game addons take particularly long. To compile all
-the binary addons:
-```
-$ ./build-binary-addons-all.sh
-```
-
-or instead execute this if you are not going to use Kodi personal video
-recorder (PVR) features. This command compiles all binary addons except
-the PVR addons:
-```
-$ ./build-binary-addons-no-pvr.sh
-```
-
 Finally, to install Kodi, the Kodi binary addons and the required runtime
 files like the default skin execute:
 ```
@@ -155,6 +141,52 @@ Now that Kodi is installed you can safely delete the Kodi build directory to sav
 ```
 $ ./purge-build-directory.sh
 ```
+
+Do not purge the build directory before compiling the binary addons.
+
+
+## Compiling the Kodi binary addons
+
+To compile all the binary addons:
+```
+$ cd /home/kodi/KodiInstall
+$ ./build-binary-addons-all.sh
+```
+
+or instead execute this if you are not going to use Kodi personal video
+recorder (PVR) features. This command compiles all binary addons except
+the PVR addons:
+```
+$ cd /home/kodi/KodiInstall
+$ ./build-binary-addons-no-pvr.sh
+```
+
+the binary addons are automatically installed in `/home/kodi/bin-kodi/` after compilation.
+
+
+To compile the Libretro cores (Kodi addons that let you play games) first edit the file
+`/home/kodi/KodiInstall/build-binary-addons-libretro-cores.sh` and comment/uncomment 
+the Libretro cores you want to build. Note that building **all** the cores takes about 5/6
+hours on a fast machine. Each MAME core takes 1 hour! Build only the cores you plan to use.
+```
+# --- Build the addons ---
+# --- Uncomment the cores you want to build. Cores are shorted alphabetically.
+# --- For a list of all cores see http://mirrors.kodi.tv/addons/leia/
+# --- and look for the game.libretro.* addons.
+# compile_core game.libretro.2048
+# compile_core game.libretro.4do
+compile_core game.libretro.beetle-bsnes
+# compile_core game.libretro.beetle-gba
+...
+```
+
+Finally, compile the Libretro cores:
+```
+$ cd /home/kodi/KodiInstall
+$ ./build-binary-addons-libretro-cores.sh
+```
+
+the Libretro cores addons are automatically installed in `/home/kodi/bin-kodi/` after compilation.
 
 ## Update Kodi ##
 
@@ -175,10 +207,74 @@ Then configure, compile and install Kodi again:
 $ cd /home/kodi/KodiInstall
 $ ./configure-kodi.sh
 $ ./build-kodi-x11.sh
-$ ./clean-binary-addons.sh
-$ ./build-binary-addons-no-pvr.sh
 $ ./install-kodi.sh
+$ ./build-binary-addons-no-pvr.sh
+$ ./build-binary-addons-libretro-cores.sh
 ```
 
 If you plan to update Kodi frequently then do not execute `purge-build-directory.sh` to save
 compilation time (only files changed will be recompiled).
+
+## Notes ##
+
+ * Compiling the binary addons with `build-binary-addons-no-pvr.sh` installs them in
+   `/home/kodi/bin-kodi/` even if Kodi has not been installed before.
+
+ * The addons `game.controller.*` are not binary addons. They can be downloaded with the Kodi
+   addon manager.
+
+ * Kodi is built out-of-source but the binary addons are build inside the Kodi source.
+
+ * Executing `build-binary-addons-no-pvr.sh` or `build-binary-addons-libretro-cores.sh`
+   updates the binary addons source code if it has been changed?
+
+ * After a fresh installation all the binary addons are **disabled**. They must be enabled
+   in `Settings` -> `Addons` -> `My addons`.
+
+ * If a Libretro core is not installed the extensions it supports are not shown in the
+   Games source filesystem browser. Libretro core addons must installed/enabled first.
+
+## Current bugs ##
+
+ * If I execute any ROM I get the following dialog window "Add-on is incompatible due to
+   unmet dependencies. Missing: game.controller.genesis.6button, game.controller.genesis.mouse"
+
+   Kodi does not install `game.controller.*` addons automatically. Manually installing the
+   addons solves the problem.
+
+ * If there is no joystick plugged in then emulation does not start.
+
+ * In the Kodi Wiki `https://kodi.wiki/view/Game_add-ons` the following `You will need to place 
+   them into the System Directory (linux example for pcsx bios files: 
+   ~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/system/ ).` is wrong. The correct
+   directory is `~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/resources/system/`
+
+ * If joystick is hot unplugged Kodi correctly detects that is has been unplugged.
+   ```
+22:46:37.511 T:140428854687488   ERROR: AddOnLog: Joystick Support: ScanEvents: failed to read joystick "Xbox 360 Wireless Receiver" on /dev/input/js0 - 19 (No such device)
+22:46:38.921 T:140429205022464   ERROR: Previous line repeats 86 times.
+22:46:38.921 T:140429205022464  NOTICE: UnregisterRemovedDevices - device removed from joystick/peripheral.joystick/0: Xbox 360 Wireless Receiver (0000:0000)
+   ```
+
+   and emulation does not start anymore. Interestingly, in Windows emulation starts when
+   there is no gamepad, only keyboard.
+
+ * If joystick is hot plugged Kodi detects it OK.
+   ```
+22:48:47.805 T:140429205022464  NOTICE: Register - new joystick device registered on addon->peripheral.joystick/1: Xbox 360 Wireless Receiver
+   ```
+
+   emulation starts when a ROM is clicked. Ineterstingly, if a joystick is plugged emulation
+   starts correctly even if controlling Kodi with the keyboard.
+
+ * Aspect ratio in core `beetle_psx` is wrong in Stretch mode Normal. Stretch mode 4:3 seems
+   to work OK.
+
+ * I cannot use the gamepad at all in `beetle_psx`, not even after remapping the controlles
+   `PlayStation Dual Analog` and `PlayStation Dual Shock`.
+
+ * Core `prboom` crashes if `prboom.wad` is not found. Kodi crashes as well.
+
+ * Speed of `prboom` core is totally wrong. Core must be run at 35 FPS, otherwise speed is
+   wrong. This problem also happens in Retroarch. A core that does frame interpolation like
+   **Crispy Doom** or **PrBoom+** is required.

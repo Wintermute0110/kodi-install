@@ -2,10 +2,6 @@
 
 # Install Kodi build dependencies for Debian unstable (October 2018).
 
-mkdir -p /home/kodi/kodi-bin
-mkdir -p /home/kodi/kodi-build
-mkdir -p /home/kodi/kodi-source
-
 # Install build tools
 apt install \
     build-essential debhelper \
