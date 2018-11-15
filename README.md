@@ -1,4 +1,4 @@
-## Compile and install Kodi on Debian/Ubuntu distributions ##
+# Compile and install Kodi on Debian/Ubuntu distributions #
 
 ## Table of Contents
 
