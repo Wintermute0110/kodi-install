@@ -6,7 +6,10 @@
 * **[Cloning this repository](#cloning-this-repository)**
 * **[Clone and prepare Kodi source code](#clone-and-prepare-kodi-source-code)**
 * **[Compile and installing Kodi for the first time](#compile-and-installing-kodi-for-the-first-time)**
+* **[Compiling the Kodi binary addons](#compiling-the-kodi-binary-addons)**
 * **[Update Kodi](#update-kodi)**
+* **[Notes](#notes)**
+* **[Current bugs](#current-bugs)**
 
 ## Readme me first ##
 
@@ -250,19 +253,21 @@ compilation time (only files changed will be recompiled).
    directory is `~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/resources/system/`
 
  * If joystick is hot unplugged Kodi correctly detects that is has been unplugged.
-   ```
+ 
+```
 22:46:37.511 T:140428854687488   ERROR: AddOnLog: Joystick Support: ScanEvents: failed to read joystick "Xbox 360 Wireless Receiver" on /dev/input/js0 - 19 (No such device)
 22:46:38.921 T:140429205022464   ERROR: Previous line repeats 86 times.
 22:46:38.921 T:140429205022464  NOTICE: UnregisterRemovedDevices - device removed from joystick/peripheral.joystick/0: Xbox 360 Wireless Receiver (0000:0000)
-   ```
+```
 
    and emulation does not start anymore. Interestingly, in Windows emulation starts when
    there is no gamepad, only keyboard.
 
  * If joystick is hot plugged Kodi detects it OK.
-   ```
+ 
+```
 22:48:47.805 T:140429205022464  NOTICE: Register - new joystick device registered on addon->peripheral.joystick/1: Xbox 360 Wireless Receiver
-   ```
+```
 
    emulation starts when a ROM is clicked. Ineterstingly, if a joystick is plugged emulation
    starts correctly even if controlling Kodi with the keyboard.
@@ -270,7 +275,7 @@ compilation time (only files changed will be recompiled).
  * Aspect ratio in core `beetle_psx` is wrong in Stretch mode Normal. Stretch mode 4:3 seems
    to work OK.
 
- * I cannot use the gamepad at all in `beetle_psx`, not even after remapping the controlles
+ * I cannot use the gamepad at all in `beetle_psx`, not even after remapping the controllers
    `PlayStation Dual Analog` and `PlayStation Dual Shock`.
 
  * Core `prboom` crashes if `prboom.wad` is not found. Kodi crashes as well.
