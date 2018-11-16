@@ -50,7 +50,7 @@ If you don't have `git` installed then execute as `root` user:
 
 To clone this repository:
 ```
-$ cd /home/kodi
+$ cd /home/kodi/
 $ git clone https://github.com/Wintermute0110/KodiInstall.git
 ```
 
@@ -104,7 +104,7 @@ As `root` execute:
 As the `kodi` user, the Kodi build directory needs to be configured
 before compilation:
 ```
-$ cd /home/kodi/KodiInstall
+$ cd /home/kodi/KodiInstall/
 $ ./configure-kodi.sh
 ```
 
@@ -134,7 +134,7 @@ Do not purge the build directory before compiling the binary addons.
 
 To compile all the binary addons:
 ```
-$ cd /home/kodi/KodiInstall
+$ cd /home/kodi/KodiInstall/
 $ ./build-binary-addons-all.sh
 ```
 
@@ -142,7 +142,7 @@ or instead execute this if you are not going to use Kodi personal video
 recorder (PVR) features. This command compiles all binary addons except
 the PVR addons:
 ```
-$ cd /home/kodi/KodiInstall
+$ cd /home/kodi/KodiInstall/
 $ ./build-binary-addons-no-pvr.sh
 ```
 
@@ -167,7 +167,7 @@ compile_core game.libretro.beetle-bsnes
 
 Finally, compile the Libretro cores:
 ```
-$ cd /home/kodi/KodiInstall
+$ cd /home/kodi/KodiInstall/
 $ ./build-binary-addons-libretro-cores.sh
 ```
 
@@ -190,7 +190,7 @@ $ git checkout 17.6-Krypton
 
 Then configure, compile and install Kodi again:
 ```
-$ cd /home/kodi/KodiInstall
+$ cd /home/kodi/KodiInstall/
 $ ./configure-kodi.sh
 $ ./build-kodi-x11.sh
 $ ./install-kodi.sh
