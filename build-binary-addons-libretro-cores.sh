@@ -78,8 +78,8 @@ compile_core game.libretro.prboom
 # compile_core game.libretro.sameboy
 compile_core game.libretro.scummvm
 compile_core game.libretro.snes9x
-compile_core game.libretro.snes9x2002
-compile_core game.libretro.snes9x2010
+# compile_core game.libretro.snes9x2002
+# compile_core game.libretro.snes9x2010
 # compile_core game.libretro.stella
 # compile_core game.libretro.tgbdual
 # compile_core game.libretro.tyrquake
