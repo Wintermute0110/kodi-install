@@ -1,6 +1,7 @@
 #!/bin/bash
-
+#
 # Install Kodi build dependencies for Debian unstable (October 2018).
+#
 
 # Install build tools
 apt install \
