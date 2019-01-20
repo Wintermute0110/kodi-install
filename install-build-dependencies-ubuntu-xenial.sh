@@ -48,7 +48,6 @@ apt install \
     liblircclient-dev \
     libltdl-dev \
     liblzo2-dev \
-    libmariadb-client-lgpl-dev \
     libmicrohttpd-dev \
     libmysqlclient-dev \
     libnfs-dev \
