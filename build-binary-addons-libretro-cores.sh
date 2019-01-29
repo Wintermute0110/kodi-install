@@ -17,7 +17,8 @@ compile_core () {
 repofname="/home/kodi/kodi-source/cmake/addons/bootstrap/repositories/binary-addons.txt"
 bin_addons_repo="binary-addons https://github.com/kodi-game/repo-binary-addons.git retroplayer"
 rm -f $repofname
-echo $bin_addons_repo >> $repofname
+# -n no trailing newline
+echo -n $bin_addons_repo >> $repofname
 
 # --- Build the addons ---
 # --- Uncomment the cores you want to build. Cores are sorted alphabetically.
@@ -77,7 +78,7 @@ compile_core game.libretro.prboom
 # compile_core game.libretro.quicknes
 # compile_core game.libretro.sameboy
 compile_core game.libretro.scummvm
-compile_core game.libretro.snes9x
+# compile_core game.libretro.snes9x
 # compile_core game.libretro.snes9x2002
 # compile_core game.libretro.snes9x2010
 # compile_core game.libretro.stella

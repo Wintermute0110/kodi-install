@@ -7,7 +7,8 @@
 repofname="/home/kodi/kodi-source/cmake/addons/bootstrap/repositories/binary-addons.txt"
 bin_addons_repo="binary-addons https://github.com/xbmc/repo-binary-addons.git master"
 rm -f $repofname
-echo $bin_addons_repo >> $repofname
+# -n no trailing newline
+echo -n $bin_addons_repo >> $repofname
 
 # Build the addons
 num_proc=`nproc`
