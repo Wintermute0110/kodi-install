@@ -65,6 +65,7 @@ apt install \
     libtiff5-dev \
     libtinyxml-dev \
     libudev-dev \
+    libunistring-dev \
     libva-dev \
     libvdpau-dev \
     libvorbis-dev \
