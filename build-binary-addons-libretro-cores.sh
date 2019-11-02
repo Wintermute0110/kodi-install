@@ -26,34 +26,34 @@ echo -n $bin_addons_repo >> $repofname
 # --- and look for the game.libretro.* addons.
 # compile_core game.libretro.2048
 # compile_core game.libretro.4do
-compile_core game.libretro.beetle-bsnes
+# compile_core game.libretro.beetle-bsnes
 # compile_core game.libretro.beetle-gba
 # compile_core game.libretro.beetle-lynx
 # compile_core game.libretro.beetle-ngp
-compile_core game.libretro.beetle-pce-fast
-compile_core game.libretro.beetle-pcfx
+# compile_core game.libretro.beetle-pce-fast
+# compile_core game.libretro.beetle-pcfx
 compile_core game.libretro.beetle-psx
 # compile_core game.libretro.beetle-saturn
 # compile_core game.libretro.beetle-supergrafx
 # compile_core game.libretro.beetle-vb
 # compile_core game.libretro.beetle-wswan
 # compile_core game.libretro.bluemsx
-compile_core game.libretro.bnes
-compile_core game.libretro.bsnes-mercury-accuracy
-compile_core game.libretro.bsnes-mercury-balanced
-compile_core game.libretro.bsnes-mercury-performance
+# compile_core game.libretro.bnes
+# compile_core game.libretro.bsnes-mercury-accuracy
+# compile_core game.libretro.bsnes-mercury-balanced
+# compile_core game.libretro.bsnes-mercury-performance
 # compile_core game.libretro.cap32
-compile_core game.libretro.desmume
+# compile_core game.libretro.desmume
 # compile_core game.libretro.dinothawr
-compile_core game.libretro.dosbox
+# compile_core game.libretro.dosbox
 # compile_core game.libretro.fbalpha
 # compile_core game.libretro.fbalpha2012
-compile_core game.libretro.fceumm
+# compile_core game.libretro.fceumm
 # compile_core game.libretro.fmsx
 # compile_core game.libretro.fuse
-compile_core game.libretro.gambatte
+# compile_core game.libretro.gambatte
 compile_core game.libretro.genplus
-compile_core game.libretro.gw
+# compile_core game.libretro.gw
 # compile_core game.libretro.handy
 # compile_core game.libretro.hatari
 # compile_core game.libretro.lutro
