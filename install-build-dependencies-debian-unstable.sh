@@ -50,7 +50,8 @@ apt install \
     libltdl-dev \
     liblzo2-dev \
     libmicrohttpd-dev \
-    libmysqlclient-dev \
+    libmariadb-dev-compat \
+    libmariadb-dev \
     libnfs-dev \
     libogg-dev \
     libpcre3-dev \
