@@ -5,10 +5,27 @@
 
 # Install build tools
 apt install \
-    build-essential debhelper \
-    autoconf automake autopoint gettext autotools-dev cmake curl \
-    default-jre doxygen gawk gdc gperf libtool \
-    lsb-release swig unzip yasm zip ccache
+    build-essential \
+    autoconf \
+    automake \
+    autopoint \
+    autotools-dev \
+    ccache \
+    cmake \
+    curl \
+    debhelper \
+    default-jre \
+    doxygen \
+    gawk \
+    gdc \
+    gettext \
+    gperf \
+    libtool \
+    lsb-release \
+    swig \
+    unzip \
+    yasm \
+    zip
 
 # Python stuff
 apt install python-dev python-pil
@@ -31,6 +48,7 @@ apt install \
     libegl1-mesa-dev \
     libenca-dev \
     libflac-dev \
+    libflatbuffers-dev \
     libfontconfig-dev \
     libfreetype6-dev \
     libfribidi-dev \
