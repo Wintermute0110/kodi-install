@@ -177,7 +177,7 @@ the Libretro cores addons are automatically installed in `/home/kodi/bin-kodi/` 
 
 Update Kodi source code:
 ```
-$ cd /home/kodi-source/
+$ cd /home/kodi/kodi-source/
 $ git checkout master
 $ git pull
 ```
@@ -197,9 +197,11 @@ $ ./build-binary-addons-no-pvr.sh
 $ ./build-binary-addons-libretro-cores.sh
 ```
 
-If you plan to update Kodi frequently then do not execute `purge-build-directory.sh` to save
-compilation time (only files changed will be recompiled).
+ * If you plan to update Kodi frequently then do not execute `purge-build-directory.sh` to save
+   compilation time (only files changed will be recompiled).
 
+ * If you experience problems executing `configure-kodi.sh` when re-compiling try to execute
+   `purge-build-directory.sh`.
 
 ## Notes ##
 
