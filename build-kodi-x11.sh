@@ -2,8 +2,8 @@
 
 # Builds Kodi for X11.
 
+source configuration.sh
 num_proc=`nproc`
 echo "Using $num_proc processors"
-mkdir -p /home/kodi/kodi-build
-cd /home/kodi/kodi-build
+cd $KODI_BUILD_DIR
 cmake --build . -- -j$num_proc

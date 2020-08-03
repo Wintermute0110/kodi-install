@@ -3,7 +3,7 @@
 # Install Kodi build dependencies for Debian unstable (October 2018).
 #
 
-# Install build tools
+# Install build tools (alphabetical order)
 apt install \
     build-essential \
     autoconf \
@@ -11,6 +11,7 @@ apt install \
     autopoint \
     autotools-dev \
     ccache \
+    clang-format \
     cmake \
     curl \
     debhelper \
@@ -22,28 +23,38 @@ apt install \
     gperf \
     libtool \
     lsb-release \
+    nasm \
     swig \
     unzip \
     yasm \
     zip
 
-# Python stuff
-apt install python-dev python-pil
+# Python stuff (Leia)
+# As of August 2020 Python 2 has been removed from Debian Unstable.
+# apt install python-dev python-pil
 
-# Install build libraries (alphabetical order0
+# Python stuff (Matrix)
+apt install python3-dev python3-pil python3-pip
+
+# Install build libraries (alphabetical order)
+# libavahi-compat-libdnssd-dev -> MDNS -> dns_sd.h (currently does not work, MDNS not found)
 apt install \
     libasound2-dev \
     libass-dev \
     libavahi-client-dev \
     libavahi-common-dev \
+    libavahi-compat-libdnssd-dev \
+    libavahi-core-dev \
     libbluetooth-dev \
     libbluray-dev \
     libbz2-dev \
+    libcap-dev \
     libcdio-dev \
     libcec-dev \
     libcrossguid-dev \
     libcurl4-openssl-dev \
     libcwiid-dev \
+    libdav1d-dev \
     libdbus-1-dev \
     libegl1-mesa-dev \
     libenca-dev \
@@ -54,14 +65,16 @@ apt install \
     libfribidi-dev \
     libfstrcmp-dev \
     libfmt-dev \
-    libgcrypt-dev \
+    libgcrypt20-dev \
     libgif-dev \
     libgles2-mesa-dev \
     libgl1-mesa-dev \
     libglu1-mesa-dev \
     libgnutls28-dev \
     libgpg-error-dev \
+    libgtest-dev \
     libiso9660-dev \
+    libiso9660++-dev \
     libjpeg-dev \
     liblcms2-dev \
     liblirc-dev \
@@ -78,12 +91,14 @@ apt install \
     libpulse-dev \
     libp8-platform-dev \
     libsmbclient-dev \
+    libspdlog-dev \
     libsqlite3-dev \
     libssl-dev \
     libtag1-dev \
     libtiff5-dev \
     libtinyxml-dev \
     libudev-dev \
+    libudfread-dev \
     libunistring-dev \
     libva-dev \
     libvdpau-dev \
