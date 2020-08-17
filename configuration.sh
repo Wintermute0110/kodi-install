@@ -1,4 +1,4 @@
-# Kodi install configuraion
+# Kodi install configuration file. No trailing / in these variables.
 
 # Kodi source directory.
 KODI_SOURCE_DIR=/home/kodi/kodi-source
