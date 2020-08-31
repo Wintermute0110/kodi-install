@@ -8,13 +8,14 @@ compile_core () {
     echo "Compiling core $1 ..."
     num_proc=`nproc`
     echo "Using $num_proc processors"
-    cd /home/kodi/kodi-source
-    rm -f /home/kodi/kodi-source/tools/depends/target/binary-addons/.installed-native
+    cd ${KODI_SOURCE_DIR}
+    rm -f ${KODI_SOURCE_DIR}/tools/depends/target/binary-addons/.installed-native
     make -j$num_proc -C tools/depends/target/binary-addons PREFIX=/home/kodi/bin-kodi ADDONS="$1"
 }
 
 # --- Configure Kodi repository for Libretro cores ---
-repofname="/home/kodi/kodi-source/cmake/addons/bootstrap/repositories/binary-addons.txt"
+source configuration.sh
+repofname="${KODI_SOURCE_DIR}/cmake/addons/bootstrap/repositories/binary-addons.txt"
 bin_addons_repo="binary-addons https://github.com/kodi-game/repo-binary-addons.git retroplayer"
 rm -f $repofname
 # -n no trailing newline
@@ -32,7 +33,7 @@ echo -n $bin_addons_repo >> $repofname
 # compile_core game.libretro.beetle-ngp
 # compile_core game.libretro.beetle-pce-fast
 # compile_core game.libretro.beetle-pcfx
-compile_core game.libretro.beetle-psx
+# compile_core game.libretro.beetle-psx
 # compile_core game.libretro.beetle-saturn
 # compile_core game.libretro.beetle-supergrafx
 # compile_core game.libretro.beetle-vb
@@ -57,7 +58,7 @@ compile_core game.libretro.genplus
 # compile_core game.libretro.handy
 # compile_core game.libretro.hatari
 # compile_core game.libretro.lutro
-# --- Careful with the MAME cores. Each one takes 1 hour to compile on a fast machine!
+# Careful with the MAME cores. Each one takes 1 hour to compile on a fast machine!
 # compile_core game.libretro.mame2000
 # compile_core game.libretro.mame2003
 # compile_core game.libretro.mame2003_plus
@@ -65,20 +66,20 @@ compile_core game.libretro.genplus
 # compile_core game.libretro.meteor
 # compile_core game.libretro.mgba
 # compile_core game.libretro.mrboom
-# --- Mupen64plus seems to only work on Windows
+# Mupen64plus seems to only work on Windows
 # compile_core game.libretro.mupen64plus
-compile_core game.libretro.nestopia
+# compile_core game.libretro.nestopia
 # compile_core game.libretro.nx
 # compile_core game.libretro.o2em
 # compile_core game.libretro.pcsx-rearmed
-compile_core game.libretro.picodrive
+# compile_core game.libretro.picodrive
 # compile_core game.libretro.pokemini
 # compile_core game.libretro.prboom
 # compile_core game.libretro.prosystem
 # compile_core game.libretro.quicknes
 # compile_core game.libretro.sameboy
 # compile_core game.libretro.scummvm
-# compile_core game.libretro.snes9x
+compile_core game.libretro.snes9x
 # compile_core game.libretro.snes9x2002
 # compile_core game.libretro.snes9x2010
 # compile_core game.libretro.stella
