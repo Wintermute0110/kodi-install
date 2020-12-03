@@ -9,3 +9,8 @@ echo "Kodi install directory ${KODI_INSTALL_DIR}"
 
 cd ${KODI_BUILD_DIR}
 make install
+
+echo "Installation finished."
+echo "Kodi source directory  ${KODI_SOURCE_DIR}"
+echo "Kodi build directory   ${KODI_BUILD_DIR}"
+echo "Kodi install directory ${KODI_INSTALL_DIR}"

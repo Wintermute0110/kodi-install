@@ -10,6 +10,7 @@ KODI_SOURCE_DIR=/home/kodi/kodi-source
 # KODI_INSTALL_DIR=/home/kodi/kodi-bin-leia
 
 # Kodi development version.
-KODI_SOURCE_TAG=19.0a1-Matrix
+# 19.0b1-Matrix
+KODI_SOURCE_TAG=master
 KODI_BUILD_DIR=/home/kodi/kodi-build
 KODI_INSTALL_DIR=/home/kodi/kodi-bin

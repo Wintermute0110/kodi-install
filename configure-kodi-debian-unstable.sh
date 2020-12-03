@@ -15,10 +15,15 @@ cd $KODI_BUILD_DIR
 # Options:
 #   -DVERBOSE=ON
 #   -DENABLE_INTERNAL_FLATBUFFERS=ON
-#   -DX11_RENDER_SYSTEM=gl   Required in Matrix, could be gl or gles
+#   -DAPP_RENDER_SYSTEM=gl   Required in Matrix, could be gl or gles
 
 # Kodi Leia
 # cmake $KODI_SOURCE_DIR -DCMAKE_INSTALL_PREFIX=$KODI_INSTALL_DIR
 
 # Kodi Matrix
-cmake $KODI_SOURCE_DIR -DX11_RENDER_SYSTEM=gl -DCMAKE_INSTALL_PREFIX=$KODI_INSTALL_DIR
+cmake $KODI_SOURCE_DIR -DCMAKE_INSTALL_PREFIX=$KODI_INSTALL_DIR -DAPP_RENDER_SYSTEM=gl
+
+echo "Configuration finished."
+echo "Kodi source directory  ${KODI_SOURCE_DIR}"
+echo "Kodi build directory   ${KODI_BUILD_DIR}"
+echo "Kodi install directory ${KODI_INSTALL_DIR}"

@@ -109,4 +109,6 @@ apt install \
     libxt-dev \
     rapidjson-dev \
     uuid-dev \
+    waylandpp-dev \
+    wayland-protocols \
     zlib1g-dev
