@@ -2,8 +2,17 @@
 
 # Creates build directory and configures Kodi build.
 
-mkdir -p /home/kodi/kodi-build
-cd /home/kodi/kodi-build
+source configuration.sh
+echo "Kodi source directory  $KODI_SOURCE_DIR"
+echo "Kodi build directory   $KODI_BUILD_DIR"
+echo "Kodi install directory $KODI_INSTALL_DIR"
 
-# Options: -DVERBOSE=ON
-cmake ../kodi-source -DCMAKE_INSTALL_PREFIX=/home/kodi/bin-kodi -DENABLE_INTERNAL_FLATBUFFERS=ON -DENABLE_INTERNAL_FMT=ON -DENABLE_INTERNAL_RapidJSON=ON
+# Create build directory.
+mkdir -p $KODI_BUILD_DIR
+cd $KODI_BUILD_DIR
+
+cmake $KODI_SOURCE_DIR -DCMAKE_INSTALL_PREFIX=$KODI_INSTALL_DIR -DENABLE_INTERNAL_FLATBUFFERS=ON -DENABLE_INTERNAL_FMT=ON -DENABLE_INTERNAL_RapidJSON=ON
+echo "Configuration finished."
+echo "Kodi source directory  ${KODI_SOURCE_DIR}"
+echo "Kodi build directory   ${KODI_BUILD_DIR}"
+echo "Kodi install directory ${KODI_INSTALL_DIR}"

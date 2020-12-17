@@ -38,8 +38,8 @@ apt install \
     libfstrcmp-dev \
     libgcrypt20-dev \
     libgif-dev \
-    libgles2-mesa-dev \
     libgl1-mesa-dev \
+    libgles2-mesa-dev \
     libglu1-mesa-dev \
     libgnutls28-dev \
     libgpg-error-dev \
@@ -53,11 +53,11 @@ apt install \
     libmysqlclient-dev \
     libnfs-dev \
     libogg-dev \
+    libp8-platform-dev \
     libpcre3-dev \
     libplist-dev \
     libpng-dev \
     libpulse-dev \
-    libp8-platform-dev \
     libsmbclient-dev \
     libsqlite3-dev \
     libssl-dev \
