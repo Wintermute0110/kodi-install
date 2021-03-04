@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Builds Kodi binary PVR 
+# Builds Kodi binary PVR addon iptvsimple.
+# Uses Kodi standard repository for binary addons.
 source configuration.sh
 
 # Configure Kodi standard repository for binary addons.
@@ -9,11 +10,12 @@ bin_addons_repo="binary-addons https://github.com/xbmc/repo-binary-addons.git ma
 rm -f $repofname
 # -n no trailing newline
 echo -n $bin_addons_repo >> $repofname
+control_file="${KODI_SOURCE_DIR}/tools/depends/target/binary-addons/.installed-native"
+echo "Control file ${control_file}"
 
 # Build the addons
 num_proc=`nproc`
 echo "Using $num_proc processors"
 cd ${KODI_SOURCE_DIR}
-
-rm -f ${KODI_SOURCE_DIR}/tools/depends/target/binary-addons/.installed-native
-make -j$num_proc -C tools/depends/target/binary-addons PREFIX=/home/kodi/bin-kodi ADDONS="pvr.iptvsimple"
+rm -f ${control_file}
+make -j$num_proc -C tools/depends/target/binary-addons PREFIX=${KODI_INSTALL_DIR} ADDONS="pvr.iptvsimple"

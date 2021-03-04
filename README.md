@@ -13,12 +13,20 @@
 
 ## Readme me first ##
 
-These scripts assume that:
+The **Kodi source directory**, the **Kodi build directory**, the **Kodi Install directory** and the Kodi build tag can be configured in the file `configuration.sh`.
 
- * The user running Kodi is named `kodi`.
- 
- * The home folder of the `kodi` user is `/home/kodi`.
- 
+```
+# Kodi install configuration file. No trailing / in these variables.
+
+# Kodi source directory.
+KODI_SOURCE_DIR=/home/kodi/kodi-source
+KODI_SOURCE_TAG=18.9-Leia
+KODI_BUILD_DIR=/home/kodi/kodi-build
+KODI_INSTALL_DIR=/home/kodi/kodi-bin
+```
+
+For the time being do not use spaces in the directory names and do not include a tralining `/` in the directory names. The above example is for a Linux user name `kodi` whose home directory is `/home/kodi`. Following with the example:
+
  * Kodi source code is located in `/home/kodi/kodi-source/`.
  
  * Kodi temporary build directory is `/home/kodi/kodi-build/`. You can safely
@@ -26,20 +34,16 @@ These scripts assume that:
 
  * Kodi will be installed in the directory `/home/kodi/bin-kodi/`.
 
- * Kodi user data directory is `/home/.kodi/`.
+ * Kodi user data directory is `/home/.kodi/`. This directory will be created automatically the first time you execute Kodi.
 
 Once compiled and installed, you can execute Kodi in several ways:
 ```
 $ /home/kodi/bin-kodi/bin/kodi
-
 $ /home/kodi/bin-kodi/bin/kodi-standalone
-
 $ /home/kodi/bin-kodi/lib/kodi/kodi-x11
 ```
 
-The actual Kodi executable is `/home/kodi/bin-kodi/lib/kodi/kodi-x11`. The
-first two files are shell scripts that call the actual Kodi executable `kodi-x11`.
-
+The actual Kodi executable is `/home/kodi/bin-kodi/lib/kodi/kodi-x11`. The first two files are shell scripts that call the actual Kodi executable `kodi-x11`.
 
 ## Cloning this repository ##
 

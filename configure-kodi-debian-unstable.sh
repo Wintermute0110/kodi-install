@@ -15,7 +15,9 @@ cd $KODI_BUILD_DIR
 # Options:
 #   -DVERBOSE=ON
 #   -DENABLE_INTERNAL_FLATBUFFERS=ON
-#   -DAPP_RENDER_SYSTEM=gl   Required in Matrix, could be gl or gles
+#   -DAPP_RENDER_SYSTEM=gl   Required in Matrix, could be gl or gles.
+#
+# Having extra -D arguments in cmake seems to do no harm.
 
 # Kodi Leia
 # cmake $KODI_SOURCE_DIR -DCMAKE_INSTALL_PREFIX=$KODI_INSTALL_DIR
