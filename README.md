@@ -11,10 +11,13 @@
 * **[Notes](#notes)**
 * **[Current bugs](#current-bugs)**
 
+## WARNING
+
+Currently there is a problem when building the binary addons for Kodi Matrix with the scripts `build-binary-addons-*.sh`. I am investigating the issue and will publish a fix when ready.
+
 ## Readme me first ##
 
-The **Kodi source directory**, the **Kodi build directory**, the **Kodi Install directory** and the Kodi build tag can be configured in the file `configuration.sh`.
-
+The **Kodi source directory**, the **Kodi build directory**, the **Kodi Install directory** and the **Kodi build tag**, AKA the version you want to compile, can be configured in the file `configuration.sh`.
 ```
 # Kodi install configuration file. No trailing / in these variables.
 
@@ -32,18 +35,18 @@ For the time being do not use spaces in the directory names and do not include a
  * Kodi temporary build directory is `/home/kodi/kodi-build/`. You can safely
    delete it once Kodi has been compiled and installed.
 
- * Kodi will be installed in the directory `/home/kodi/bin-kodi/`.
+ * Kodi will be installed in the directory `/home/kodi/kodi-bin/`.
 
- * Kodi user data directory is `/home/.kodi/`. This directory will be created automatically the first time you execute Kodi.
+ * Kodi user data directory is `/home/kodi/.kodi/` by default. This directory will be created automatically the first time you execute Kodi.
 
 Once compiled and installed, you can execute Kodi in several ways:
 ```
-$ /home/kodi/bin-kodi/bin/kodi
-$ /home/kodi/bin-kodi/bin/kodi-standalone
-$ /home/kodi/bin-kodi/lib/kodi/kodi-x11
+$ /home/kodi/kodi-bin/bin/kodi
+$ /home/kodi/kodi-bin/bin/kodi-standalone
+$ /home/kodi/kodi-bin/lib/kodi/kodi-x11
 ```
 
-The actual Kodi executable is `/home/kodi/bin-kodi/lib/kodi/kodi-x11`. The first two files are shell scripts that call the actual Kodi executable `kodi-x11`.
+The actual Kodi executable is `/home/kodi/kodi-bin/lib/kodi/kodi-x11`. The first two files are shell scripts that call the actual Kodi executable `kodi-x11`.
 
 ## Cloning this repository ##
 
@@ -70,8 +73,7 @@ $ cd /home/kodi/
 $ git clone https://github.com/xbmc/xbmc.git kodi-source
 ```
 
-If you want to compile a particular version of Kodi first have a look at the
-tags in the repository:
+If you want to compile a particular version of Kodi first have a look at the tags in the repository:
 ```
 $ cd /home/kodi/kodi-source/
 $ git tag
@@ -79,18 +81,18 @@ $ git tag
 16.0-Jarvis
 17.0-Krypton
 17.6-Krypton
-18.0b4-Leia
-18.0b5-Leia
 18.0-Leia
+18.9-Leia
+19.0-Matrix
+19.1-Matrix
 ...
 $ 
 ```
 
-Each tag corresponds to a released version of Kodi. Now, tell `git` to set the
-Kodi source code to the version you want:
+Each tag corresponds to a released version of Kodi. Now, tell `git` to set the Kodi source code to the version you want:
 ```
 $ cd /home/kodi/kodi-source/
-$ git checkout 17.6-Krypton
+$ git checkout 19.1-Matrix
 ```
 
 The Kodi source code is now ready for compilation.
@@ -98,28 +100,24 @@ The Kodi source code is now ready for compilation.
 
 ## Compile and installing Kodi for the first time ##
 
-First you need to install the build dependencies required to compile Kodi.
-As `root` execute:
+First you need to install the build dependencies required to compile Kodi. As `root` execute:
 ```
 # cd /home/kodi/Kodi-Install/
 # ./install-build-dependencies-debian.sh
 ```
 
-As the `kodi` user, the Kodi build directory needs to be configured
-before compilation:
+As the `kodi` user, the Kodi build directory needs to be configured before compilation:
 ```
 $ cd /home/kodi/Kodi-Install/
 $ ./configure-kodi.sh
 ```
 
-Now it's time to compile Kodi. This will take a while (about 15 minutes on a
-fast computer):
+Now it's time to compile Kodi. This will take a while (about 15 minutes on a fast computer):
 ```
 $ ./build-kodi-x11.sh
 ```
 
-Finally, to install Kodi, the Kodi binary addons and the required runtime
-files like the default skin execute:
+Finally, to install Kodi, the Kodi binary addons and the required runtime files like the default skin execute:
 ```
 $ ./install-kodi.sh
 ```
@@ -209,42 +207,30 @@ $ ./build-binary-addons-libretro-cores.sh
 
 ## Notes ##
 
- * Compiling the binary addons with `build-binary-addons-no-pvr.sh` installs them in
-   `/home/kodi/bin-kodi/` even if Kodi has not been installed before.
+ * Compiling the binary addons with `build-binary-addons-no-pvr.sh` installs them in `/home/kodi/bin-kodi/` even if Kodi has not been installed before.
 
- * The addons `game.controller.*` are not binary addons. They can be downloaded with the Kodi
-   addon manager.
+ * The addons `game.controller.*` are not binary addons. They can be downloaded with the Kodi addon manager.
 
  * Kodi is built out-of-source but the binary addons are build inside the Kodi source.
 
- * Executing `build-binary-addons-no-pvr.sh` or `build-binary-addons-libretro-cores.sh`
-   updates the binary addons source code if it has been changed?
+ * Executing `build-binary-addons-no-pvr.sh` or `build-binary-addons-libretro-cores.sh` updates the binary addons source code if it has been changed?
 
- * After a fresh installation all the binary addons are **disabled**. They must be enabled
-   in `Settings` -> `Addons` -> `My addons`.
+ * After a fresh installation all the binary addons are **disabled**. They must be enabled in `Settings` -> `Addons` -> `My addons`.
 
- * If a Libretro core is not installed the extensions it supports are not shown in the
-   Games source filesystem browser. Libretro core addons must installed/enabled first.
+ * If a Libretro core is not installed the extensions it supports are not shown in the Games source filesystem browser. Libretro core addons must installed/enabled first.
 
 
 ## Current bugs ##
 
- * If I execute any ROM I get the following dialog window "Add-on is incompatible due to
-   unmet dependencies. Missing: game.controller.genesis.6button, game.controller.genesis.mouse"
+ * If I execute any ROM I get the following dialog window "Add-on is incompatible due to unmet dependencies. Missing: game.controller.genesis.6button, game.controller.genesis.mouse"
 
-   Kodi does not install `game.controller.*` addons automatically. Manually installing the
-   addons solves the problem.
+   Kodi does not install `game.controller.*` addons automatically. Manually installing the addons solves the problem.
 
  * If there is no joystick plugged in then emulation does not start.
 
- * In the Kodi Wiki `https://kodi.wiki/view/Game_add-ons` the following `You will need to place 
-   them into the System Directory (linux example for pcsx bios files: 
-   ~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/system/ ).` is wrong. The correct
-   directory is `~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/resources/system/`
+ * In the Kodi Wiki `https://kodi.wiki/view/Game_add-ons` the following `You will need to place them into the System Directory (linux example for pcsx bios files: ~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/system/ ).` is wrong. The correct directory is `~/.kodi/userdata/addon_data/game.libretro.pcsx-rearmed/resources/system/`
 
- * If joystick is hot unplugged Kodi correctly detects that is has been unplugged and emulation
-   does not start anymore. Interestingly, in Windows emulation starts when
-   there is no gamepad, only keyboard.
+ * If joystick is hot unplugged Kodi correctly detects that is has been unplugged and emulation does not start anymore. Interestingly, in Windows emulation starts when there is no gamepad, only keyboard.
 
 ```
 22:46:37.511 T:140428854687488   ERROR: AddOnLog: Joystick Support: ScanEvents: failed to read joystick "Xbox 360 Wireless Receiver" on /dev/input/js0 - 19 (No such device)
@@ -252,22 +238,16 @@ $ ./build-binary-addons-libretro-cores.sh
 22:46:38.921 T:140429205022464  NOTICE: UnregisterRemovedDevices - device removed from joystick/peripheral.joystick/0: Xbox 360 Wireless Receiver (0000:0000)
 ```
 
- * If joystick is hot plugged Kodi detects it OK. Emulation starts when a ROM is clicked.
-   Interestingly, whenever a joystick is plugged emulation starts correctly even if
-   controlling Kodi with the keyboard.
+ * If joystick is hot plugged Kodi detects it OK. Emulation starts when a ROM is clicked. Interestingly, whenever a joystick is plugged emulation starts correctly even if controlling Kodi with the keyboard.
 
 ```
 22:48:47.805 T:140429205022464  NOTICE: Register - new joystick device registered on addon->peripheral.joystick/1: Xbox 360 Wireless Receiver
 ```
 
- * Aspect ratio in core `beetle_psx` is wrong in Stretch mode Normal. Stretch mode 4:3 seems
-   to work OK.
+ * Aspect ratio in core `beetle_psx` is wrong in Stretch mode Normal. Stretch mode 4:3 seems to work OK.
 
- * I cannot use the gamepad at all in `beetle_psx`, not even after remapping the controllers
-   `PlayStation Dual Analog` and `PlayStation Dual Shock`.
+ * I cannot use the gamepad at all in `beetle_psx`, not even after remapping the controllers `PlayStation Dual Analog` and `PlayStation Dual Shock`.
 
  * Core `prboom` crashes if `prboom.wad` is not found. Kodi crashes as well.
 
- * Speed of `prboom` core is totally wrong. Core must be run at 35 FPS, otherwise speed is
-   wrong. This problem also happens in Retroarch. A core that does frame interpolation like
-   **Crispy Doom** or **PrBoom+** is required.
+ * Speed of `prboom` core is totally wrong. Core must be run at 35 FPS, otherwise speed is wrong. This problem also happens in Retroarch. A core that does frame interpolation like **Crispy Doom** or **PrBoom+** is required.
