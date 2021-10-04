@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Builds all Kodi binary addons. Note that Libretro cores are not compiled by this script.
+# Builds all Kodi binary addons.
+# Note that Libretro cores are not compiled in this script.
 # Uses Kodi standard repository for binary addons.
 source configuration.sh
 

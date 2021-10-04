@@ -29,10 +29,6 @@ apt install \
     yasm \
     zip
 
-# Python 2 stuff (Leia)
-# As of August 2020 Python 2 has been deprecated from Debian Unstable. Python 3 is the default.
-apt install python2-dev python-pil
-
 # Python 3 stuff (Matrix)
 apt install python3-dev python3-pil python3-pip
 

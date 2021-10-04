@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source configuration.sh
 current_dir=`pwd`
 echo "Current directory $current_dir"
